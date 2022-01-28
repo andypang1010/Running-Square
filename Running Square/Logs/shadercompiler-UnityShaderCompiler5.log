@@ -40,3 +40,6 @@ Cmd: compileSnippet
 
 
 
+Cmd: shutdown
+
+Quitting shader compiler process
