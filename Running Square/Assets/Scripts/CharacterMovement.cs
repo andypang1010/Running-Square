@@ -9,8 +9,11 @@ public class CharacterMovement : MonoBehaviour
 
     public Material hitMaterial;
 
-    [SerializeField] float controlSpeed = 9.5f;
-    [SerializeField] float movementSpeed = 600f;
+    [SerializeField]
+    float controlSpeed = 9.5f;
+
+    [SerializeField]
+    float movementSpeed = 600f;
 
     // Allows user input and set the transformation and rotation of the player object
     void Start()
@@ -22,7 +25,7 @@ public class CharacterMovement : MonoBehaviour
         transform.position = new Vector3(0, 0, 0);
     }
 
-    void Update()
+    void FixedUpdate()
     {
         if (inputAllowed == true)
         {
@@ -56,7 +59,8 @@ public class CharacterMovement : MonoBehaviour
     void ProcessMovement()
     {
         // Gets the input values and add force to the rigidbody
-        float horizontalMovement = Input.GetAxis("Horizontal") * controlSpeed * Time.smoothDeltaTime;
+        float horizontalMovement =
+            Input.GetAxis("Horizontal") * controlSpeed * Time.smoothDeltaTime;
         float forwardMovement = movementSpeed * Time.smoothDeltaTime;
         transform.Translate(new Vector3(horizontalMovement, 0, 0));
         rigidBody.AddForce(new Vector3(0, 0, forwardMovement));
@@ -75,7 +79,6 @@ public class CharacterMovement : MonoBehaviour
             DisableInputs();
             rigidBody.constraints = RigidbodyConstraints.FreezeAll;
         }
-
         // Secret easter egg
         else if (collision.gameObject.tag == "Egg")
         {

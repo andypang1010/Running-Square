@@ -2,10 +2,11 @@ using UnityEngine;
 
 public class ObstacleSpin : MonoBehaviour
 {
-    [SerializeField] float rotateSpeed = 10f;
+    [SerializeField]
+    float rotateSpeed = 10f;
     bool collided = false;
 
-    void Update()
+    void FixedUpdate()
     {
         if (!collided)
         {

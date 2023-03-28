@@ -2,9 +2,14 @@ using UnityEngine;
 
 public class ObstacleFall : MonoBehaviour
 {
-    [SerializeField] Transform playerTransform;
-    [SerializeField] float detectionRange = 50f;
-    [SerializeField] float fallHeight = 11f;
+    [SerializeField]
+    Transform playerTransform;
+
+    [SerializeField]
+    float detectionRange = 50f;
+
+    [SerializeField]
+    float fallHeight = 11f;
 
     void Start()
     {
@@ -12,7 +17,7 @@ public class ObstacleFall : MonoBehaviour
         enableFall(false);
     }
 
-    void Update()
+    void FixedUpdate()
     {
         // Start falling if the distance between the player and the obstacle
         // is smaller than range
